@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай число</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: white;
+            margin-top: 10%;
+        }
+        h1 {
+            font-size: 28px;
+        }
+        input {
+            font-size: 18px;
+            padding: 8px;
+            margin: 10px;
+            width: 100px;
+            text-align: center;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Угадай число от 1 до 10</h1>
+    <input type="number" id="userGuess" min="1" max="10" placeholder="1-10">
+    <button onclick="checkGuess()">Проверить</button>
+    <p id="result"></p>
+
+    <script>
+        const randomNumber = Math.floor(Math.random() * 10) + 1;
+
+        function checkGuess() {
+            const userGuess = document.getElementById("userGuess").value;
+            const resultText = document.getElementById("result");
+
+            if (userGuess == randomNumber) {
+                resultText.innerHTML = "🎉 Поздравляю! Ты угадал число!";
+                resultText.style.color = "green";
+            } else {
+                resultText.innerHTML = `❌ Не угадал! Было число: ${randomNumber}`;
+                resultText.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
